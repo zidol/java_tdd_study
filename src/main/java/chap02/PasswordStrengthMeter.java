@@ -9,7 +9,6 @@ public class PasswordStrengthMeter {
 
         boolean containsNum = meetsCotainingNumberCriteria(s);
         if(!containsNum) return PasswordStrength.NORMAL;
-
         return PasswordStrength.STRONG;
     }
 
