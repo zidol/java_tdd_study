@@ -3,7 +3,7 @@ package chap03;
 import java.time.LocalDate;
 
 public class ExpiryDateCalculator {
-    public LocalDate calculateExpiryDte(LocalDate billingDate, int payAmount) {
-        return billingDate.plusMonths(1);
+    public LocalDate calculateExpiryDte(PayData payData) {
+        return payData.getBillingDate().plusMonths(1);
     }
 }
