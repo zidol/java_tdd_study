@@ -1,6 +1,6 @@
-package chap07;
+package chap07.cardNumber;
 
-public class JpaAutoDebitInfoRepository implements AutoDebitInfoRepository {
+public class StubAutoDebitRepository implements AutoDebitInfoRepository {
     @Override
     public void save(AutoDebitInfo info) {
 

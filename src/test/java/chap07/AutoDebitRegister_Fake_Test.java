@@ -1,12 +1,11 @@
 package chap07;
 
+import chap07.cardNumber.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
 
-import static chap07.CardValidity.INVALID;
-import static chap07.CardValidity.THEFT;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AutoDebitRegister_Fake_Test {

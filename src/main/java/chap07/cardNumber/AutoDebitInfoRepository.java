@@ -1,4 +1,4 @@
-package chap07;
+package chap07.cardNumber;
 
 public interface AutoDebitInfoRepository {
     void save(AutoDebitInfo info);

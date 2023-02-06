@@ -1,10 +1,10 @@
 package chap07;
 
-import org.junit.jupiter.api.Assertions;
+import chap07.cardNumber.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static chap07.CardValidity.*;
+import static chap07.cardNumber.CardValidity.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class AutoDebitRegister_Stub_Test {
