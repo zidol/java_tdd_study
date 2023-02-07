@@ -1,5 +1,6 @@
 package chap07.userRegist;
 
+import chap07.exception.WeakPasswordException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
