@@ -47,7 +47,6 @@ class UserRegisterTest {
     @Test
     void noDupId_RegisterSuccess() {
         userRegister.register("id", "pw", "email");
-
         User savedUser = fakeRepository.findById("id");
         assertEquals("id", savedUser.getId());
         assertEquals("email", savedUser.getEmail());
@@ -57,7 +56,6 @@ class UserRegisterTest {
     @Test
     void whenRegisterThenSendMail() {
         userRegister.register("id", "pw", "email@email.com");
-
         assertTrue(spyEmailNotifier.isCalled());
         assertEquals("email@email.com", spyEmailNotifier.getEmail());
 
