@@ -5,6 +5,8 @@ import chap07.exception.WeakPasswordException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.mockito.BDDMockito;
+import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -12,12 +14,16 @@ class UserRegisterTest {
 
     private UserRegister userRegister;
 
+    private WeakPasswordChecker mockPasswordChecker = Mockito.mock(WeakPasswordChecker.class);
+
+
     private StubWeakPasswordChecker stubWeakPasswordChecker = new StubWeakPasswordChecker();
 
     private MemoryUserRepository fakeRepository = new MemoryUserRepository();
 
     private SpyEmailNotifier spyEmailNotifier = new SpyEmailNotifier();
 
+    private EmailNotifier mockEmailNotifier = Mockito.mock(EmailNotifier.class);
 
     @BeforeEach
     void setUp() {
@@ -27,7 +33,8 @@ class UserRegisterTest {
     @DisplayName("약한 암호면 가입 실패")
     @Test
     void weakPassword() {
-        stubWeakPasswordChecker.setWeak(true);  // 암호가 약하다고 응답하도록 설정
+        BDDMockito.given(mockPasswordChecker.checkPasswordWeak("pw")).willReturn(true);
+//        stubWeakPasswordChecker.setWeak(true);  // 암호가 약하다고 응답하도록 설정
         assertThrows(WeakPasswordException.class, () -> {
             userRegister.register("id", "pwd", "email");
         });
