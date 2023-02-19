@@ -67,4 +67,14 @@ class UserRegisterTest {
         assertEquals("email@email.com", spyEmailNotifier.getEmail());
 
     }
+
+    @DisplayName("회원 가입시 암호 검사 수행함")
+    @Test
+    void checkPassword() {
+        userRegister.register("id", "pw", "email");
+
+        BDDMockito.then(mockPasswordChecker)
+                .should()
+                .checkPasswordWeak(BDDMockito.anyString());
+    }
 }
