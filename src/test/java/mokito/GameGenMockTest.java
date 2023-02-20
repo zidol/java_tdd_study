@@ -15,13 +15,13 @@ public class GameGenMockTest {
     @DisplayName("BDDMockito.given()을 이용한 스텁 설정")
     @Test
     void mockTest() {
-        //모의 객체 생성
+        //1. 모의 객체 생성
         GameNumGen genMock = mock(GameNumGen.class);
 
-        //스텁 설정
+        //2. 스텁 설정
         given(genMock.generate(GameLevel.EASY)).willReturn("123");
 
-        //스텁 설정에 매칭되는 메서드 실행
+        //3. 스텁 설정에 매칭되는 메서드 실행
         String num = genMock.generate(GameLevel.EASY);
         Assertions.assertEquals("123", num);
     }
