@@ -1,5 +1,5 @@
 package mokito;
 
 public enum GameLevel {
-    EASY, HARD
+    EASY, NORMAL, HARD
 }
