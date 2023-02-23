@@ -1,10 +1,7 @@
 package chap07;
 
 import chap07.exception.WeakPasswordException;
-import chap07.userRegist.EmailNotifier;
-import chap07.userRegist.MemoryUserRepository;
-import chap07.userRegist.UserRegister;
-import chap07.userRegist.WeakPasswordChecker;
+import chap07.userRegist.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -23,6 +20,8 @@ public class UserRegisterMockTest {
     private WeakPasswordChecker mockPasswordChecker = Mockito.mock(WeakPasswordChecker.class);
 
     private MemoryUserRepository fakeRepository = new MemoryUserRepository();
+
+    private UserRepository mockRepository = mock(UserRepository.class);
 
     private EmailNotifier mockEmailNotifier = mock(EmailNotifier.class);
 
@@ -54,6 +53,29 @@ public class UserRegisterMockTest {
                 .checkPasswordWeak(BDDMockito.anyString());
     }
 
+    //모의 객체를 과하게 사용하지 않기
+    //모의객체를 과하게 사요하면 오히려 테스트 코드가 복잡해짐
+
+//     @Test
+//     void noDup_RegisterSuccess() {
+//         userRegister.register("id", "pw", "email");
+//
+//         ArgumentCaptor<User> captor = ArgumentCaptor.forClass(User.class);
+//         then(mockRepository).should().save(captor.capture());
+//
+//         User savedUser = captor.getValue();
+//         assertEquals("id", savedUser.getId());
+//         assertEquals("email", savedUser.getEmail());
+//     }
+    @Test
+    void 같은_Id가_없으면_가입() {
+        userRegister.register("id", "pw", "email");
+
+        User savedUser = fakeRepository.findById("id");
+        assertEquals("id", savedUser.getId());
+        assertEquals("email", savedUser.getEmail());
+    }
+
     //모의 객체의 메서드를 호출할 때 전달한 인자를 구하는 코드
     @DisplayName("가입하면 메일을 전송함")
     @Test
@@ -67,4 +89,5 @@ public class UserRegisterMockTest {
         String realEmail = captor.getValue();
         assertEquals("email@email.com", realEmail);
     }
+
 }
