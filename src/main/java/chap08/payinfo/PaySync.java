@@ -1,4 +1,4 @@
-package chap08;
+package chap08.payinfo;
 
 import java.io.IOException;
 import java.nio.file.Files;

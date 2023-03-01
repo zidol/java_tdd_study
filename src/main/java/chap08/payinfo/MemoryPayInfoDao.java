@@ -1,4 +1,4 @@
-package chap08;
+package chap08.payinfo;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

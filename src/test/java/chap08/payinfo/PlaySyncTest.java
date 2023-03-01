@@ -1,4 +1,4 @@
-package chap08;
+package chap08.payinfo;
 
 import org.junit.jupiter.api.Test;
 
