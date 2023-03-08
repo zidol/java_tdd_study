@@ -1,7 +1,6 @@
 package com.example.chap09.user;
 
 import chap07.exception.DupIdException;
-import chap07.userRegist.UserRegister;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -31,7 +30,6 @@ public class UserRegisterIntTest {
                 () -> register.register("cbk", "strongpw", "email@email.com")
         );
     }
-
     @Test
     void 존재하지_않으면_저장함() {
         // 상황
