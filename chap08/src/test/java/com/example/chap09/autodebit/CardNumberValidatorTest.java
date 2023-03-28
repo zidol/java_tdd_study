@@ -9,6 +9,15 @@ import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * WireMockServer는 HTTP 서버를 흉내 낸다.
+ * 일반적 사용법
+ * - 테스트 실행 전에 WireMockServer를 시작한다. 실제 HTTP 서버가 뜬다.
+ * - 테스트에서 WireMockServer의 동작을 기술한다.
+ * - HTTP연동을 수행하는 테스트를 실행한다.
+ * - 테스트 실행 후에 WireMockServer를 중지한다.
+ *
+ */
 class CardNumberValidatorTest {
 
     private WireMockServer wireMockServer;
