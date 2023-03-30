@@ -25,7 +25,7 @@ public class UserApiE2ETest {
         String reqBody = "{\"id\": \"id\", \"pw\": \"123\", \"email\": \"a@a.com\" }";
         RequestEntity<String> request =
                 RequestEntity.post(URI.create("/users"))
-                        .contentType(MediaType.APPLICATION_JSON_UTF8)
+                        .contentType(MediaType.APPLICATION_JSON)
                         .body(reqBody);
 
         ResponseEntity<String> response = restTemplate.exchange(
